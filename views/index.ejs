@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <div style=" margin: 10px auto; color: #000; width: 80%;">
-    <h1 style="color: #000;">all Articles Page</h1>
-    <div style="padding: 10px; background-color: #515151; color: #fff; margin: 0 auto;" class="articlebox">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 style="color: #000">all Articles Page</h1>
+    <div
+      style="
+        padding: 10px;
+        background-color: #515151;
+        color: #fff;
+        margin: 0 auto;
+      "
+      class="articlebox"
+    >
       <% for(let article of allArticles){ %>
-        <h1> <%= article.title %></h1>
-        <p> <%= article.body %></p>
+      <div style="margin: 10px auto; color: #000; width: 80%">
+        <h1><%= article.title %></h1>
+        <p><%= article.body %></p>
+      </div>
+
       <% }%>
     </div>
-    
-  </div>
-
-  
-</body>
+  </body>
 </html>
