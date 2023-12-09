@@ -2,7 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const Stories = require("./models/article");
 const Article = require("./models/article");
-
 const app = express();
 
 app.get("/hello", (req, res) => {
@@ -12,7 +11,7 @@ app.get("/hello", (req, res) => {
 app.use(express.json());
 
 app.get("/world", (req, res) => {
-  res.send("hello world");
+  res.send("hello world:");
 });
 
 // app.get("/message/sayHello", (req, res) => {
