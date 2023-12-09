@@ -81,7 +81,7 @@ app.delete("/deleteArticle/:articleId", async (req, res) => {
 app.get("/showAllArticles", async (req, res) => {
   try {
     const articles = await Article.find();
-    res.render("views/index.ejs", { allArticles: articles });
+    res.render("index.ejs", { allArticles: articles });
   } catch (error) {
     console.error("Error rendering page:", error);
     res.status(500).send("Internal Server Error");
