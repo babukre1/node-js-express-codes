@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 const articleSchema = new Schema({
   title: String,
   body: String,
-  numberOfLikes: Number
+  numberOfLikes: Number,
 });
-const Article = mongoose.model("Article", articleSchema) 
+const Article = mongoose.model("Article", articleSchema);
 
 module.exports = Article;
