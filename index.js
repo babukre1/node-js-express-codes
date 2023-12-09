@@ -12,7 +12,7 @@ app.get("/hello", (req, res) => {
 app.use(express.json());
 
 app.get("/world", (req, res) => {
-  res.send("hello world")
+  res.send("hello world");
 });
 
 // app.get("/message/sayHello", (req, res) => {
@@ -36,17 +36,17 @@ mongoose
   })
   .catch((error) => {
     console.log("error happening");
-  }),
-  app.post("/Article", async (req, res) => {
-    const newArticle = new Article();
-    const artTitle = req.body.articleTitle;
-    const artBody = req.body.articleBody;
-    newArticle.title = artTitle;
-    newArticle.body = artBody;
-    newArticle.numberOfLikes = 1000023;
-    await newArticle.save();
-    res.json(newArticle);
   });
+app.post("/Article", async (req, res) => {
+  const newArticle = new Article();
+  const artTitle = req.body.articleTitle;
+  const artBody = req.body.articleBody;
+  newArticle.title = artTitle;
+  newArticle.body = artBody;
+  newArticle.numberOfLikes = 1000023;
+  await newArticle.save();
+  res.json(newArticle);
+});
 app.set("view engine", "ejs");
 
 app.get("/Article", async (req, res) => {
