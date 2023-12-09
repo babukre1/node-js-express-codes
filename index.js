@@ -15,17 +15,17 @@ app.get("/world", (req, res) => {
   res.send("hello world")
 });
 
-app.get("/message/sayHello", (req, res) => {
-  let numbers = "";
-  for (let i = 0; i < 100; i++) {
-    numbers += i + " - ";
-  }
-  // res.json({
-  //   name: req.body.name,
-  //   state: "JSON HANDLING"
-  // })
-  res.render("index.ejs", { numbers: numbers });
-});
+// app.get("/message/sayHello", (req, res) => {
+//   let numbers = "";
+//   for (let i = 0; i < 100; i++) {
+//     numbers += i + " - ";
+//   }
+//   // res.json({
+//   //   name: req.body.name,
+//   //   state: "JSON HANDLING"
+//   // })
+//   res.render("index.ejs", { numbers: numbers });
+// });
 
 mongoose
   .connect(
