@@ -47,6 +47,7 @@ mongoose
     await newArticle.save();
     res.json(newArticle);
   });
+app.set("view engine", "ejs");
 
 app.get("/Article", async (req, res) => {
   const articles = await Article.find();
@@ -78,8 +79,13 @@ app.delete("/deleteArticle/:articleId", async (req, res) => {
 });
 
 app.get("/showAllArticles", async (req, res) => {
-  const articles = await Article.find();
-  res.render("index.ejs", { allArticles: articles });
+  try {
+    const articles = await Article.find();
+    res.render("views/index.ejs", { allArticles: articles });
+  } catch (error) {
+    console.error("Error rendering page:", error);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
 app.listen(3000, () => {
