@@ -11,6 +11,10 @@ app.get("/hello", (req, res) => {
 
 app.use(express.json());
 
+app.get("/world", (req, res) => {
+  res.send("hello world")
+});
+
 app.get("/message/sayHello", (req, res) => {
   let numbers = "";
   for (let i = 0; i < 100; i++) {
@@ -44,17 +48,10 @@ mongoose
     res.json(newArticle);
   });
 
-
-app.get("/Article", async(req, res) => {
+app.get("/Article", async (req, res) => {
   const articles = await Article.find();
-  res.json(articles)
-})
-
-
-
-
-
-
+  res.json(articles);
+});
 
 app.get("/Article/:articleId", async (req, res) => {
   const id = req.params.articleId;
@@ -63,11 +60,11 @@ app.get("/Article/:articleId", async (req, res) => {
     res.json(article);
   } catch (error) {
     res.send(error);
-  };
+  }
 });
 
 app.delete("/deleteArticle/:articleId", async (req, res) => {
-  const id = req.params.articleId
+  const id = req.params.articleId;
   try {
     const article = await Article.findByIdAndDelete(id);
     console.log("this artice has been deleted");
@@ -76,15 +73,14 @@ app.delete("/deleteArticle/:articleId", async (req, res) => {
     return;
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ error: 'Internal Server Error' });
+    return res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
-app.get("/showAllArticles", async(req, res) => {
+app.get("/showAllArticles", async (req, res) => {
   const articles = await Article.find();
-  res.render("index.ejs", {allArticles: articles});
-  
-})
+  res.render("index.ejs", { allArticles: articles });
+});
 
 app.listen(3000, () => {
   console.log("i`m listening in port 3000");
